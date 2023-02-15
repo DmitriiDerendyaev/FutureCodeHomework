@@ -1,5 +1,7 @@
 package org.future.code.homework;
 
+import java.util.List;
+
 public class HomeWork1 {
 /*
     Домашнее задание:
@@ -17,6 +19,30 @@ public class HomeWork1 {
     и их студентах. Вызвать реализованные для преподавателей и студентов методы.
  */
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+    }
+}
+
+class Student{
+    protected StringBuilder name;
+    protected List<Integer> marks;
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Student(StringBuilder name, List<Integer> marks, int age) {
+        this.name = name;
+        this.marks = marks;
+        this.age = age;
+    }
+
+    public void callAge(){
+        System.out.println();
     }
 }
