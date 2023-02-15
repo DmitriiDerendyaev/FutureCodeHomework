@@ -44,6 +44,13 @@ public class HomeWork2 {
             true, true, true, false, false, false, true, false, false, false, false, true
     );
 
+
+    static class LoginValidationException extends Exception{
+        public LoginValidationException(String message){
+            super(message);
+        }
+
+    }
     public static void main(String[] args) {
         System.out.println("\nTests for validateLogin");
         AntiCheat.run();
@@ -65,13 +72,32 @@ public class HomeWork2 {
                     20);
     }
 
-    public static void validateLogin(String login) {
-        //Место для Вашего кода из пункта 2
+    public static void validateLogin(String login) throws LoginValidationException {
+        if(login.length() > 20){
+            throw new LoginValidationException("Максимальная длинна логина- 20 символов");
+        }
+
+
+        if(!login.matches("^[a-zA-Z0-9_]*$")){
+            throw new LoginValidationException("Логин должен содержать только латинские буквы, цифры и знак подчеркивания");
+        }
+
+
+        if(!login.matches(".*[a-z].*") || !login.matches(".*[A-Z].*") ||
+                !login.matches(".*[0-9].*") || !login.matches(".*_.+")){
+            throw new LoginValidationException("Логин должен содержать как минимум одну маленькую, одну большую букву, цифру и знак подчеркивания");
+
+        }
+
     }
 
     public static Boolean isLoginValid(String login) {
-        //Место для Вашего кода из пункта 3
-        return false;
+        try {
+            validateLogin(login);
+            return true;
+        } catch (LoginValidationException e) {
+            return false;
+        }
     }
 
     public static class AntiCheat {
