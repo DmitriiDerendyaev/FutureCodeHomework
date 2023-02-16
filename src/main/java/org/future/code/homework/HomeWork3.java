@@ -36,8 +36,15 @@ public class  HomeWork3 {
         testSecondTask();
     }
     public static void raiseException(Integer exceptionId) throws Exception { // Подсказка: throws Exception в итоге надо поменять на перечисление имен исключений
-        // Напиши свой код тут для задания 1
-        throw new Exception();
+        if(exceptionId == 1)
+            throw new SocketException("SockedException");
+        if(exceptionId == 2)
+            throw new ClassNotFoundException("ClassNotFoundException");
+        if(exceptionId == 3)
+            throw  new AccessDeniedException("AccessDeniedException");
+        if(exceptionId == 4)
+            throw new ExportException("ExportException");
+
     }
     public static String catchException(Integer integer) {
         // Напиши свой код тут для задания 2
